@@ -8,7 +8,22 @@ function generatePassword(){
   //loop to make sure user inputs at least one type for password
   while(availableType.length === 0){
     //prompt for each input and add corresponding number to array
-    input = window.confirm("Would you like to use Uppercase?");
+    input = window.confirm("Would you like to use uppercase?");
+    if (input){
+      availableType.push(1);
+    }
+    input = window.confirm("Whould you like to use lowercase?");
+    if (input){
+      availableType.push(2);
+    }
+    input = window.confirm("Whould you like to use numbers?");
+    if (input){
+      availableType.push(3);
+    }
+    input = window.confirm("Whould you like to use special characters?");
+    if (input){
+      availableType.push(4);
+    }
 
     if(availableType.length === 0){
       window.alert("Please choose at least one type to generate a password");
@@ -40,16 +55,21 @@ function generatePassword(){
   return password;
 };
 function getLength(){
-  //prompt for length and loop until a valid input is given
-  var passLength = window.prompt("How long do you want your password to be (between 8 and 128 characters)");
-  passLength = parseInt(passLength);
-  if (passLength >= 8 && passLength <= 128){
-    return passLength;
+  var validResponse = false;
+
+  while(!validResponse){
+
+    //prompt for length and loop until a valid input is given
+    var passLength = window.prompt("How long do you want your password to be (between 8 and 128 characters)");
+    passLength = parseInt(passLength);
+    if (passLength >= 8 && passLength <= 128){
+      validResponse = true;
+    }
+    else{
+      window.alert("Invalid input. Please choose a number between 8 and 128");
+    }
   }
-  else{
-    window.alert("Invalid input. Please choose a number between 8 and 128");
-    getLength();
-  }
+  return passLength;
 }
 function getRandomUpper(){
   var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
