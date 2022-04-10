@@ -1,5 +1,9 @@
 # challenge3
 week 3 challenge
+
+# Deployed URL
+https://niccarrig.github.io/challenge3/
+
 # User Story
 
 AS AN employee with access to sensitive data\
